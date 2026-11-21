@@ -122,6 +122,29 @@ main.wide{max-width:1180px}
 @media (max-height:480px){.vu-ch{padding:6px 6px 2px}.vu-ch figcaption{display:none}.vu-grid+.hint{display:none}}
 .eq-bar .btn,.eq-bar .opt{white-space:nowrap}
 @media (max-width:520px){.eq-bar{flex-wrap:wrap}.eq-read{order:5;flex-basis:100%}.eq-bar .opt{margin-left:auto}}
+/* first screen: only the cassette, the progress bar and the control buttons; the track menu is below, reached by scrolling */
+#main:not(.wide){max-width:none;padding:10px 12px 40px}
+#view-player .deck-wrap{
+  height:calc(100dvh - 20px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));min-height:230px;box-sizing:border-box;
+  display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto auto auto;gap:6px;padding:10px 14px 8px;align-items:center}
+#view-player #deck{width:100%;height:100%;min-height:0}
+#view-player .deck-wrap input[type=range]#seek{margin:0}
+#view-player .transport{margin:0;gap:12px;flex-wrap:wrap}
+#view-player .options{padding-top:8px;gap:8px 16px}
+#view-player .list-head,#view-player #list,#view-player .hint{max-width:860px;margin-left:auto;margin-right:auto}
+#view-player #list{margin-top:0}
+@media (orientation:landscape) and (min-aspect-ratio:3/2){
+  #view-player .deck-wrap{grid-template-columns:minmax(0,1fr) minmax(220px,32%);grid-template-rows:1fr auto auto auto 1fr;column-gap:16px;row-gap:10px}
+  #view-player #deck{grid-column:1;grid-row:1 / -1}
+  #view-player #seek{grid-column:2;grid-row:2}
+  #view-player .transport{grid-column:2;grid-row:3;justify-content:center;gap:6px;flex-wrap:nowrap}
+  #view-player .transport .icon{width:36px;height:36px}
+  #view-player .transport .icon.play{width:48px;height:48px}
+  #view-player .options{grid-column:2;grid-row:4;flex-direction:column;align-items:stretch;border-top:1px solid var(--line);gap:8px}
+  #view-player .options .opt{justify-content:space-between}
+  #view-player .options .btn-group{justify-content:center}
+  #view-player .options .opt input[type=range]{flex:1;width:auto;min-width:0}
+}
 </style>
 </head>
 <body>

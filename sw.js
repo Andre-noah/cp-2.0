@@ -1,6 +1,6 @@
 // Service worker of the cassette player.
 // When you publish a new version of the files, change CACHE (for example to 'cassette-v2') so phones fetch the update.
-const CACHE = 'cassette-v1';
+const CACHE = 'cassette-v2';
 const APP_FILES = [
   './',
   'index.html',
